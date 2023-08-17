@@ -16,4 +16,5 @@ We add libtopology library and test it, we could use the demo "libtopology/test"
 We add the libprocps's README.md to describe the properties of class "proc_t".
 
 **2023-08-16**
+
 We made the baseboard chip test, for the foundation of the hardware test.
