@@ -18,3 +18,7 @@ We add the libprocps's README.md to describe the properties of class "proc_t".
 **2023-08-16**
 
 We made the baseboard chip test, for the foundation of the hardware test.
+
+**2023-08-21**
+
+We made the test that send a struct's info to D-Bus system and use a program to get the info.  Now we could transmit info between D-bus and resource manager.
