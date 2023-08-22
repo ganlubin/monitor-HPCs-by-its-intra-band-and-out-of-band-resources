@@ -3,25 +3,10 @@
 #include <errno.h>
 #include <systemd/sd-bus.h>
 
-// 定义处理信号的回调函数
-static int handle_signal(sd_bus_message *m, void *userdata, sd_bus_error *ret_error) {
-        int64_t x, y;
-        int r;
-
-        /* Read the struct data from the message */
-        // 从消息中读取结构体数据
-        r = sd_bus_message_read(m, "xx", &x, &y);
-        if (r < 0) {
-                fprintf(stderr, "Failed to parse struct data: %s\n", strerror(-r));
-                return r;
-        }
-
-        /* Print the struct data to the terminal */
-        // 将结构体数据打印到终端
-        printf("Received struct data: x=%ld, y=%ld\n", x, y);
-
-        return 0;
-}
+typedef struct your_struct_t {
+        int x;
+        int y;
+} your_struct_t;
 
 int main(int argc, char *argv[]) {
         sd_bus_slot *slot = NULL;
@@ -35,11 +20,37 @@ int main(int argc, char *argv[]) {
                 goto finish;
         }
 
-        /* Add the match rule to filter the signal */
-        // 添加匹配规则以过滤信号
-        r = sd_bus_add_match(bus, &slot, "type='signal',interface='net.poettering.Calculator',member='StructData'", handle_signal, NULL);
+        /* Create the message to store the struct data */
+        sd_bus_message *msg = NULL;
+        r = sd_bus_message_new_signal(bus, &msg, "/net/poettering/Calculator", "net.poettering.Calculator", "StructData");
         if (r < 0) {
-                fprintf(stderr, "Failed to add match rule: %s\n", strerror(-r));
+                fprintf(stderr, "Failed to create signal message: %s\n", strerror(-r));
+                goto finish;
+        }
+
+        /* Pack the struct data into the message */
+        your_struct_t your_struct_data;
+        // 设置结构体数据
+        your_struct_data.x = 10;
+        your_struct_data.y = 20;
+        // 将结构体数据打包到消息中
+        r = sd_bus_message_append(msg, "xx", your_struct_data.x, your_struct_data.y);
+        if (r < 0) {
+                fprintf(stderr, "Failed to append struct data to message: %s\n", strerror(-r));
+                goto finish;
+        }
+
+        /* Send the signal message */
+        r = sd_bus_send(bus, msg, NULL);
+        if (r < 0) {
+                fprintf(stderr, "Failed to send signal message: %s\n", strerror(-r));
+                goto finish;
+        }
+
+        /* Take a well-known service name so that clients can find us */
+        r = sd_bus_request_name(bus, "net.poettering.Calculator", 0);
+        if (r < 0) {
+                fprintf(stderr, "Failed to acquire service name: %s\n", strerror(-r));
                 goto finish;
         }
 
@@ -62,6 +73,7 @@ int main(int argc, char *argv[]) {
         }
 
 finish:
+        sd_bus_message_unref(msg);
         sd_bus_slot_unref(slot);
         sd_bus_unref(bus);
 
