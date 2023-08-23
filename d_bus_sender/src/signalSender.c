@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         your_struct_data.x = 10;
         your_struct_data.y = 20;
         // 将结构体数据打包到消息中
-        r = sd_bus_message_append(msg, "xx", your_struct_data.x, your_struct_data.y);
+        r = sd_bus_message_append(msg, "ii", your_struct_data.x, your_struct_data.y);
         if (r < 0) {
                 fprintf(stderr, "Failed to append struct data to message: %s\n", strerror(-r));
                 goto finish;

@@ -5,12 +5,12 @@
 
 // 定义处理信号的回调函数
 static int handle_signal(sd_bus_message *m, void *userdata, sd_bus_error *ret_error) {
-        int64_t x, y;
+        int x, y;
         int r;
 
         /* Read the struct data from the message */
         // 从消息中读取结构体数据
-        r = sd_bus_message_read(m, "xx", &x, &y);
+        r = sd_bus_message_read(m, "ii", &x, &y);
         if (r < 0) {
                 fprintf(stderr, "Failed to parse struct data: %s\n", strerror(-r));
                 return r;
@@ -18,7 +18,7 @@ static int handle_signal(sd_bus_message *m, void *userdata, sd_bus_error *ret_er
 
         /* Print the struct data to the terminal */
         // 将结构体数据打印到终端
-        printf("Received struct data: x=%ld, y=%ld\n", x, y);
+        printf("Received struct data: x=%d, y=%d\n", x, y);
 
         return 0;
 }
