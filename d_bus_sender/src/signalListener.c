@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 #include <systemd/sd-bus.h>
 
 // 定义处理信号的回调函数
-static int handle_signal(sd_bus_message *m, void *userdata, sd_bus_error *ret_error) {
+static int handle_signal(sd_bus_message *m) {
         int x, y;
         int r;
 
@@ -23,7 +24,7 @@ static int handle_signal(sd_bus_message *m, void *userdata, sd_bus_error *ret_er
         return 0;
 }
 
-int main(int argc, char *argv[]) {
+int main() {
         sd_bus_slot *slot = NULL;
         sd_bus *bus = NULL;
         int r;
@@ -37,7 +38,7 @@ int main(int argc, char *argv[]) {
 
         /* Add the match rule to filter the signal */
         // 添加匹配规则以过滤信号
-        r = sd_bus_add_match(bus, &slot, "type='signal',interface='net.poettering.Calculator',member='StructData'", handle_signal, NULL);
+        r = sd_bus_add_match(bus, &slot, "type='signal',interface='net.poettering.Calculator',member='StructData'", (sd_bus_message_handler_t)handle_signal, NULL);
         if (r < 0) {
                 fprintf(stderr, "Failed to add match rule: %s\n", strerror(-r));
                 goto finish;
