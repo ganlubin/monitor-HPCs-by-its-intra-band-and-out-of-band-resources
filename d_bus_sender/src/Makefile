@@ -5,15 +5,12 @@ OUTPUT_DIR = output
 
 .PHONY: all clean
 
-all: ./$(OUTPUT_DIR)/signalListener ./$(OUTPUT_DIR)/signalSender ./$(OUTPUT_DIR)/sleepSignalListener
+all: ./$(OUTPUT_DIR)/signalListener ./$(OUTPUT_DIR)/signalSender
 
 $(OUTPUT_DIR)/signalListener: signalListener.c
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 $(OUTPUT_DIR)/signalSender: signalSender.c
-	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
-
-$(OUTPUT_DIR)/sleepSignalListener: sleepSignalListener.c
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 clean:
