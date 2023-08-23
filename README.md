@@ -22,5 +22,8 @@ We made the baseboard chip test, for the foundation of the hardware test.
 **2023-08-21**
 
 We made the test that send a struct's info to D-Bus system and use a program to get the info.  Now we could transmit info between D-bus and resource manager.
-
 Welcome to the manpage of sd-bus: https://manpages.debian.org/experimental/libsystemd-dev/index.html
+
+**2023-08-23**
+
+We made the test that automatically send and get the d-bus infomation.
