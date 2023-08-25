@@ -47,7 +47,6 @@ int main()
 
         for (x = 0, y = 10;; x++, y++)
         {
-
                 /* Process requests */
                 r = sd_bus_process(bus, NULL);
                 if (r < 0)
