@@ -5,6 +5,10 @@ Please view it in branch "master".
 
 ## Updates
 
+### **2023-08-25**
+
+We made the test in folder send_process_to_DBus, and it combines libprocps and D-Bus sender, could automatically send and get the proc_t info.
+
 ### **2023-08-23**
 
 We made the test that automatically send and get the d-bus infomation.
