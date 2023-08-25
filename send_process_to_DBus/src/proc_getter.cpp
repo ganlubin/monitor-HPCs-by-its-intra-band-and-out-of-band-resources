@@ -2,8 +2,8 @@
 #include <errno.h>
 #include <iostream>
 #include <proc/readproc.h>
-#include <systemd/sd-bus.h>
 #include <random>
+#include <systemd/sd-bus.h>
 
 sd_bus_slot *slot = NULL;
 sd_bus *bus = NULL;
