@@ -13,12 +13,9 @@ int main() {
     if (proc_info.cmd == NULL) {
       continue;
     }
-    std::cout << proc_info.tid << std::endl;
-    std::cout << proc_info.pcpu << std::endl;
-    std::cout << proc_info.size << std::endl;
-    printf("------------------------------\n");
+    std::cout << proc_info.state << std::endl;
   }
-
+  std::cout << "Over" << std::endl;
   closeproc(proc); // 关闭进程表
   return 0;
 }
