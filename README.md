@@ -5,6 +5,10 @@ Please view it in branch "master".
 
 ## Updates
 
+### **2023-08.28**
+
+We add all the properties of proc_t in the sd_bus_message_append() and test it. Now we could send and get all info of proc_t.
+
 ### **2023-08-25**
 
 We made the test in folder send_process_to_DBus, and it combines libprocps and D-Bus sender, could automatically send and get the proc_t info.
