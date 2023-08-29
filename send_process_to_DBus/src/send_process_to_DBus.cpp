@@ -2,16 +2,17 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <iostream>
 #include <cerrno>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
 #include <iostream>
-#include <proc/readproc.h>
-#include <systemd/sd-bus.h>
 #include <unistd.h>
 #include <vector>
+#include <thread>
+#include <chrono>
+#include <ctime>
+#include <fstream>
+#include <proc/readproc.h>
+#include <systemd/sd-bus.h>
+
 
 int EXIT_CODE = 0;
 sd_bus_slot *slot = NULL;
@@ -164,7 +165,7 @@ int main() {
         }
       }
       processes.clear();
-      sleep(5);
+      sleep(10);
     }
   }
   closeproc(proc);

@@ -1,0 +1,3 @@
+Variable 1: 42
+Variable 2: 3.14
+Variable 3: A
