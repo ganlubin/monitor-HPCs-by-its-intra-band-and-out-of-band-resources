@@ -5,7 +5,11 @@ Please view it in branch "master".
 
 ## Updates
 
-### **2023-08.28**
+### **2023-08-29**
+
+We found some wrong in process, I will suspend the D-Bus transform temporarily and try to arrange NagiosCore and its plugins on one server and test it on another test-server, about how to install Nagios on Ubuntu 18.04, it could be found at: https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-18-04
+
+### **2023-08-28**
 
 We add all the properties of proc_t in the sd_bus_message_append() and test it. Now we could send and get all info of proc_t.
 
