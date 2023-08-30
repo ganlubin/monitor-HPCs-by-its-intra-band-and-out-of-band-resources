@@ -8,6 +8,8 @@
 #include <locale>
 #include <proc/readproc.h>
 #include <random>
+#include <sstream>
+#include <sys/stat.h>
 #include <systemd/sd-bus.h>
 #include <thread>
 
@@ -18,18 +20,13 @@ int r = 0;
 std::random_device rd;
 std::mt19937 generator(rd());
 
-void printFiles(const proc_t &t);
-
-void exit_process() {
-  sd_bus_message_unref(msg);
-  sd_bus_slot_unref(slot);
-  sd_bus_unref(bus);
-  exit(-1);
-}
+void printFiles(const proc_t &t, std::ofstream &outputFile);
+std::string getCurrentDate();
+void exit_process();
 
 static int handle_signal(sd_bus_message *m) {
   proc_t proc;
-
+  static int k = 0;
   int r;
   r = sd_bus_message_read(
       m,
@@ -56,8 +53,42 @@ static int handle_signal(sd_bus_message *m) {
     fprintf(stderr, "Failed to parse struct data: %s\n", strerror(-r));
     return r;
   }
-  std::cout << proc.euser << std::endl;
-  printFiles(proc);
+
+  std::string today_time = getCurrentDate();
+  std::string storage_path = "./output/results/";
+  std::string folderPath = storage_path + today_time;
+
+  struct stat info;
+  if (stat(folderPath.c_str(), &info) != 0) {
+    if (mkdir(folderPath.c_str(), 0755) != 0) {
+      std::cerr << "cannot create the folder" << std::endl;
+      return -1;
+    }
+  } else if (info.st_mode & S_IFDIR) {
+    // already open the folder
+  } else {
+    std::cerr << "not a folder" << std::endl;
+    return -1;
+  }
+
+  if (proc.tid == 1) {
+    k++;
+    std::string filename = folderPath + "/output_" + std::to_string(k) + ".txt";
+    std::ofstream outputFile(filename);
+    if (!outputFile) {
+      std::cerr << "create file failure" << std::endl;
+      return -1;
+    }
+    printFiles(proc, outputFile);
+  } else {
+    std::string existingFilename = folderPath + "/output_" + std::to_string(k) + ".txt";
+    std::ofstream outputFile(existingFilename, std::ios::app);
+    if (!outputFile) {
+      std::cerr << "Failed to open file" << std::endl;
+      return -1;
+    }
+    printFiles(proc, outputFile);
+  }
 
   return 0;
 }
@@ -100,24 +131,7 @@ int main() {
   return r < 0 ? EXIT_FAILURE : EXIT_SUCCESS;
 }
 
-void printFiles(const proc_t &t) {
-  time_t now = time(0);
-  tm *ltm = localtime(&now);
-  char filename[100];
-  sprintf(filename, "./output/output_%04d-%02d-%02d_%02d-%02d-%02d.txt",
-          1900 + ltm->tm_year, 1 + ltm->tm_mon, ltm->tm_mday, ltm->tm_hour,
-          ltm->tm_min, ltm->tm_sec);
-
-  std::ofstream outputFile(filename);
-
-  if (!outputFile) {
-    std::cerr << "Error opening file: " << filename << std::endl;
-    return;
-  }
-
-  outputFile.imbue(std::locale(
-      outputFile.getloc(),
-      new std::codecvt_utf8<wchar_t, 0x10ffff, std::consume_header>()));
+void printFiles(const proc_t &t, std::ofstream &outputFile) {
 
   outputFile << "tid: " << t.tid << std::endl;
   outputFile << "ppid: " << t.ppid << std::endl;
@@ -198,6 +212,26 @@ void printFiles(const proc_t &t) {
   outputFile << "processor: " << t.processor << std::endl;
   outputFile << "oom_score: " << t.oom_score << std::endl;
   outputFile << "oom_adj: " << t.oom_adj << std::endl;
+  outputFile << std::endl;
 
   outputFile.close();
+}
+
+std::string getCurrentDate() {
+  time_t now = time(0);
+  struct tm localTime;
+  localtime_r(&now, &localTime);
+
+  std::stringstream dateStream;
+  dateStream << (1900 + localTime.tm_year) << "-" << (1 + localTime.tm_mon)
+             << "-" << localTime.tm_mday;
+
+  return dateStream.str();
+}
+
+void exit_process() {
+  sd_bus_message_unref(msg);
+  sd_bus_slot_unref(slot);
+  sd_bus_unref(bus);
+  exit(-1);
 }

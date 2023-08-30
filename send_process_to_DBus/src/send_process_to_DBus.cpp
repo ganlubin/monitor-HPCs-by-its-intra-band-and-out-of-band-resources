@@ -165,7 +165,7 @@ int main() {
         }
       }
       processes.clear();
-      sleep(10);
+      sleep(60);
     }
   }
   closeproc(proc);
