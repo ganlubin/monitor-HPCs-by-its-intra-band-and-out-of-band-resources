@@ -74,19 +74,23 @@ static int handle_signal(sd_bus_message *m) {
   if (proc.tid == 1) {
     k++;
     std::string filename = folderPath + "/output_" + std::to_string(k) + ".txt";
-    std::ofstream outputFile(filename);
+    std::ofstream outputFile(filename, std::ios::out | std::ios::binary);
     if (!outputFile) {
       std::cerr << "create file failure" << std::endl;
       return -1;
     }
+    // utf-8
+    std::locale utf8_locale(std::locale(), new std::codecvt_utf8<wchar_t>);
     printFiles(proc, outputFile);
   } else {
     std::string existingFilename = folderPath + "/output_" + std::to_string(k) + ".txt";
-    std::ofstream outputFile(existingFilename, std::ios::app);
+    std::ofstream outputFile(existingFilename, std::ios::out | std::ios::binary | std::ios::app);
     if (!outputFile) {
       std::cerr << "Failed to open file" << std::endl;
       return -1;
     }
+    //utf-8
+    std::locale utf8_locale(std::locale(), new std::codecvt_utf8<wchar_t>);
     printFiles(proc, outputFile);
   }
 
