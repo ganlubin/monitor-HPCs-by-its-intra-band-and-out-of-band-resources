@@ -24,7 +24,6 @@ Movie:
 Apartment_bill:
 Transport:
 Network:
-Sum:
 */
 
 int main() {
@@ -32,15 +31,13 @@ int main() {
   std::map<std::string, double> map;
   std::cout << "the bill from 2023-08-31: " << std::endl;
   map["Transport"] += (46.5 * 2);
-  map["Sum"] += (46.5 * 2);
   map["Meal"] += 7.5 + 21.58;
-  map["Sum"] += 7.5 + 21.58;
 
   // 9-1
   map["Drink"] += 11;
-  map["Sum"] += 11;
   map["Meal"] += 6.8;
-  map["Sum"] += 6.8;
+  map["Meal"] += 15;
+  map["Shopping"] += 16.8;
 
   show(map);
 
@@ -48,7 +45,10 @@ int main() {
 }
 
 void show(std::map<std::string, double> map) {
+  double sum = 0;
   for (auto it : map) {
     std::cout << it.first << ": " << it.second << std::endl;
+    sum += it.second;
   }
+  std::cout << sum << std::endl;
 }

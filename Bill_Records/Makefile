@@ -7,7 +7,7 @@ CXX = g++
 CXXFLAGS = -std=c++17
 
 # Source directory
-SRC_DIR = ~/Desktop/Records
+SRC_DIR = ~/Desktop/monitor-HPCs-by-its-intra-band-and-out-of-band-resources/Bill_Records/
 
 # Output directory
 OUT_DIR = $(SRC_DIR)/output
