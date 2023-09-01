@@ -1,5 +1,6 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -I ~/vcpkg/installed/x64-linux/include
+CXXFLAGS = -Wall -Wextra -pedantic -std=c++17 -I ~/vcpkg/installed/x64-linux/include
+LDFLAGS = -lprocps
 
 SRC_DIR = .
 OUTPUT_DIR = ./output
@@ -7,7 +8,7 @@ OUTPUT_DIR = ./output
 all: $(OUTPUT_DIR)/main
 
 $(OUTPUT_DIR)/main: $(SRC_DIR)/main.cpp | $(OUTPUT_DIR)
-	$(CXX) $(CXXFLAGS) $< -o $@
+	$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
 
 $(OUTPUT_DIR):
 	mkdir -p $@
