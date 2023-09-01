@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cmath>
+#include <iomanip>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -47,8 +48,16 @@ int main() {
 void show(std::map<std::string, double> map) {
   double sum = 0;
   for (auto it : map) {
-    std::cout << it.first << ": " << it.second << std::endl;
     sum += it.second;
   }
-  std::cout << sum << std::endl;
+  std::cout << "-------------------------------------" << std::endl;
+  for (auto it : map) {
+    std::cout << std::left << std::setw(10) << it.first << ": " << std::fixed
+              << std::setw(10) << std::setprecision(2) << it.second << ", "
+              << std::fixed << std::setw(10) << std::setprecision(2)
+              << (it.second / sum * 100) << "%" << std::endl;
+  }
+  std::cout << "-------------------------------------" << std::endl;
+  std::cout << "From 08-31 the bills : " << std::fixed << std::setprecision(2)
+            << sum << std::endl;
 }
