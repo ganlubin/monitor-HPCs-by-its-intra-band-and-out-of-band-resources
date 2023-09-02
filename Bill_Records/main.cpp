@@ -39,6 +39,13 @@ int main() {
   map["Meal"] += 6.8;
   map["Meal"] += 15;
   map["Shopping"] += 16.8;
+  map["Shopping"] += 76.55;
+  map["Vehicle"] += 9.51 + 0.98;
+
+  // 9-2
+  map["Vehicle"] += 2 + 3.5 + 11;
+  map["Meal"] += 30.5;
+  map["Movie"] += 90.7;
 
   show(map);
 
