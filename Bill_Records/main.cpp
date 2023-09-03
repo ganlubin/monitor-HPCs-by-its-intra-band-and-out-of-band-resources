@@ -47,12 +47,16 @@ int main() {
   map["Meal"] += 30.5;
   map["Movie"] += 90.7;
 
+  // 9-3
+  map["Vehicle"] += 11.32, map["Meal"] += 22.9, map["Shopping"] += 12;
+
   show(map);
 
   return 0;
 }
 
 void show(std::map<std::string, double> map) {
+  std::cout << std::endl;
   double sum = 0;
   for (auto it : map) {
     sum += it.second;
@@ -61,10 +65,11 @@ void show(std::map<std::string, double> map) {
   for (auto it : map) {
     std::cout << std::left << std::setw(10) << it.first << ": " << std::fixed
               << std::setw(10) << std::setprecision(2) << it.second << ", "
-              << std::fixed << std::setw(10) << std::setprecision(2)
+              << std::setprecision(2)
               << (it.second / sum * 100) << "%" << std::endl;
   }
   std::cout << "-------------------------------------" << std::endl;
   std::cout << "From 08-31 the bills : " << std::fixed << std::setprecision(2)
             << sum << std::endl;
+  std::cout << std::endl;
 }
