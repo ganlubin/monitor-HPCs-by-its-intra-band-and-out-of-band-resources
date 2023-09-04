@@ -50,6 +50,9 @@ int main() {
   // 9-3
   map["Vehicle"] += 11.32, map["Meal"] += 22.9, map["Shopping"] += 12;
 
+  // 9-4
+  map["Meal"] += 7.5;
+
   show(map);
 
   return 0;
