@@ -5,9 +5,12 @@ LDFLAGS = -lprocps
 SRC_DIR = .
 OUTPUT_DIR = ./output
 
-all: $(OUTPUT_DIR)/main
+all: $(OUTPUT_DIR)/main $(OUTPUT_DIR)/UDPReceiver
 
 $(OUTPUT_DIR)/main: $(SRC_DIR)/main.cpp | $(OUTPUT_DIR)
+	$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
+
+$(OUTPUT_DIR)/UDPReceiver: $(SRC_DIR)/UDPReceiver.cpp | $(OUTPUT_DIR)
 	$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
 
 $(OUTPUT_DIR):
