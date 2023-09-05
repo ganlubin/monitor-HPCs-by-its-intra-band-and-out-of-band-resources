@@ -5,6 +5,10 @@ Please view it in branch "master".
 
 ## Updates
 
+### **2023-09-05**
+
+We add a module called "Zlib Transform", which user zlib to compress the data, and use udp to transform, we get the data successfully.
+
 ### **2023-09-04**
 
 We use UDP to send and get the proc_t, but the packages are too huge to get, we will try to fix the problems.
