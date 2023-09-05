@@ -38,7 +38,6 @@ int main() {
   std::cout << "Received compressed data length: " << receivedBytes << " bytes"
             << std::endl;
 
-
   // 解压数据
   uLong destLen = bufferSize;
   std::vector<Bytef> decompressedData(bufferSize);
@@ -55,7 +54,7 @@ int main() {
   // 将解压后的数据转化为字符串
   std::string json_str(reinterpret_cast<char *>(decompressedData.data()),
                        destLen);
-  
+
   std::size_t sizeInBytes = json_str.size();
   std::cout << sizeInBytes << std::endl;
 

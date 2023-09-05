@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",  // 包括项目文件夹中的所有头文件
+                "/home/sokee/vcpkg/installed/x64-linux/include"  // 添加额外的头文件搜索路径
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",  // 指定编译器路径
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
