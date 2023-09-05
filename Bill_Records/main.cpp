@@ -56,6 +56,7 @@ int main() {
 
   // 9-5
   map["Meal"] += 6.8;
+  map["Meal"] += 13.4;
 
   show(map);
 
