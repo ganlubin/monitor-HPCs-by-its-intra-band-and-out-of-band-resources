@@ -66,6 +66,9 @@ int main() {
   map["Football"] += 16.88;
   map["Apartment_bill"] += 61.5;
 
+  // 9-7
+  map["Shopping"] += 28.9;
+
   show(map);
 
   return 0;
