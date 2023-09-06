@@ -63,6 +63,8 @@ int main() {
   map["Meal"] += 6;
   map["Meal"] += 23;
   map["Meal"] += 20.6;
+  map["Football"] += 16.88;
+  map["Apartment_bill"] += 61.5;
 
   show(map);
 
@@ -77,8 +79,8 @@ void show(std::map<std::string, double> map) {
   }
   std::cout << "-------------------------------------" << std::endl;
   for (auto it : map) {
-    std::cout << std::left << std::setw(10) << it.first << ": " << std::fixed
-              << std::setw(10) << std::setprecision(2) << it.second << ", "
+    std::cout << std::left << std::setw(15) << it.first << ": " << std::fixed
+              << std::setw(15) << std::setprecision(2) << it.second << ", "
               << std::setprecision(2)
               << (it.second / sum * 100) << "%" << std::endl;
   }
