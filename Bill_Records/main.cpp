@@ -25,7 +25,6 @@ Movie:
 Apartment_bill:
 Transport:
 Network:
-Hair:
 */
 
 int main() {
@@ -58,10 +57,12 @@ int main() {
   // 9-5
   map["Meal"] += 6.8;
   map["Meal"] += 13.4;
-  map["Drink"] += 9.9;
-
+  
   // 9-6
-  map["Hair"] += 9.9;
+  map["Shopping"] += 9.9;
+  map["Meal"] += 6;
+  map["Meal"] += 23;
+  map["Meal"] += 20.6;
 
   show(map);
 
