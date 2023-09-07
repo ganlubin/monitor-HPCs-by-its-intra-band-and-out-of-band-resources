@@ -69,6 +69,10 @@ int main() {
   // 9-7
   map["Shopping"] += 28.9;
   map["Meal"] += 4.5;
+  map["Meal"] += 8;
+  map["Meal"] += 20;
+  map["Drink"] += 8;
+  map["Snooker"] += 300;
 
   show(map);
 
