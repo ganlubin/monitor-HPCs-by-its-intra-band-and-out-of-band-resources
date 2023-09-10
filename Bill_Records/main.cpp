@@ -25,6 +25,7 @@ Movie:
 Apartment_bill:
 Transport:
 Network:
+Trip: 
 */
 
 int main() {
@@ -73,6 +74,15 @@ int main() {
   map["Meal"] += 20;
   map["Drink"] += 8;
   map["Snooker"] += 300;
+
+  // 9-8 ~ 9-10
+  map["Transport"] += 8;
+  map["Trip"] += 10;
+  map["Drink"] += 9.9;
+  map["Meal"] += 33.9;
+  map["Movie"] += 92;
+  map["Meal"] += 14;
+  map["Transport"] += 7;
 
   show(map);
 
