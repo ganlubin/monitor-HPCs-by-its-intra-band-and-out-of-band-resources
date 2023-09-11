@@ -9,7 +9,8 @@
 #define APARTMENT_AID = 600
 #define MEAL_AID = 20
 
-void show(std::map<std::string, double>);
+void show(std::map<std::string, double>&);
+void show(const std::string&);
 /*
 From 08-31
 
@@ -93,11 +94,23 @@ int main() {
   map["Apartment_bill"] += 22.5;
 
   show(map);
+  show("Swim");
 
   return 0;
 }
 
-void show(std::map<std::string, double> map) {
+void show(const std::string &swim) {
+  std::vector<std::string> vector;
+  vector.push_back("2023-09-11");
+
+
+
+  std::cout << "-------------------------------------" << std::endl;
+  std::cout << "Swimming times: " << vector.size() << std::endl;
+  std::cout << "-------------------------------------" << std::endl;
+}
+
+void show(std::map<std::string, double> &map) {
   std::cout << std::endl;
   double sum = 0;
   for (auto it : map) {
@@ -110,8 +123,7 @@ void show(std::map<std::string, double> map) {
               << std::setprecision(2) << (it.second / sum * 100) << "%"
               << std::endl;
   }
-  std::cout << "-------------------------------------" << std::endl;
   std::cout << "From 08-31 the bills : " << std::fixed << std::setprecision(2)
             << sum << std::endl;
-  std::cout << std::endl;
+  std::cout << "-------------------------------------" << std::endl;
 }
