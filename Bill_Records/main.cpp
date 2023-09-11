@@ -25,7 +25,7 @@ Movie:
 Apartment_bill:
 Transport:
 Network:
-Trip: 
+Trip:
 */
 
 int main() {
@@ -58,7 +58,7 @@ int main() {
   // 9-5
   map["Meal"] += 6.8;
   map["Meal"] += 13.4;
-  
+
   // 9-6
   map["Shopping"] += 9.9;
   map["Meal"] += 6;
@@ -83,6 +83,14 @@ int main() {
   map["Movie"] += 92;
   map["Meal"] += 14;
   map["Transport"] += 7;
+  map["Meal"] += 69.3;
+  map["Transport"] += 12;
+
+  // 9.11
+  map["Vehicle"] += 13.27 + 3.99;
+  map["Shopping"] += 6.18 + 10.5;
+  map["Meal"] += 12;
+  map["Apartment_bill"] += 22.5;
 
   show(map);
 
@@ -99,8 +107,8 @@ void show(std::map<std::string, double> map) {
   for (auto it : map) {
     std::cout << std::left << std::setw(15) << it.first << ": " << std::fixed
               << std::setw(15) << std::setprecision(2) << it.second << ", "
-              << std::setprecision(2)
-              << (it.second / sum * 100) << "%" << std::endl;
+              << std::setprecision(2) << (it.second / sum * 100) << "%"
+              << std::endl;
   }
   std::cout << "-------------------------------------" << std::endl;
   std::cout << "From 08-31 the bills : " << std::fixed << std::setprecision(2)
