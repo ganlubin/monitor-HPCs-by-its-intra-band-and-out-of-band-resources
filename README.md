@@ -5,6 +5,10 @@ Please view it in branch "master".
 
 ## Updates
 
+### **2023-09-12**
+
+We config the hardware env, and we could test services on the board now.
+
 ### **2023-09-07**
 
 We found the author and group of paper "MonSTer_An Out-of-the-Box Monitoring Tool for High Performance Computing Systems", and we will research the project: https://github.com/nsfcac/MonSter
