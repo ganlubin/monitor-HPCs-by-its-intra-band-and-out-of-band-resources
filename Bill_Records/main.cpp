@@ -92,6 +92,8 @@ int main() {
   map["Shopping"] += 6.18 + 10.5;
   map["Meal"] += 12;
   map["Apartment_bill"] += 22.5;
+  map["Vehicle"] += 22;
+  map["Shopping"] += 3;
 
   show(map);
   show("Swim");
