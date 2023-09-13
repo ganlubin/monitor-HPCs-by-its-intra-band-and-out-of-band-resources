@@ -101,6 +101,7 @@ int main() {
 
   // 9-13
   map["Meal"] += 22;
+  map["Football"] += 31.25;
 
   show(map);
   show("Swim");
