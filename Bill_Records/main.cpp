@@ -99,6 +99,9 @@ int main() {
   map["Meal"] += 12;
   map["Drink"] += 9.9;
 
+  // 9-13
+  map["Meal"] += 22;
+
   show(map);
   show("Swim");
 
