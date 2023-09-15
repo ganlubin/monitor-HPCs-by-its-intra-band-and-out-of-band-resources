@@ -103,6 +103,15 @@ int main() {
   map["Meal"] += 22;
   map["Football"] += 31.25;
 
+  // 9-14
+  map["Meal"] += 14.87;
+  map["Drink"] += 12.48;
+  map["Shopping"] += 16.9;
+
+  // 9-15
+  map["Transport"] += 16.8;
+  map["Shopping"] += 3.8;
+
   show(map);
   show("Swim");
 
@@ -113,7 +122,7 @@ void show(const std::string &swim) {
   std::vector<std::string> vector;
   vector.push_back("2023-09-11");
   vector.push_back("2023-09-12");
-
+  vector.push_back("2023-09-14");
 
 
   std::cout << "-------------------------------------" << std::endl;
