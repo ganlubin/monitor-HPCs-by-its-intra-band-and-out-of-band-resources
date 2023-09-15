@@ -111,6 +111,7 @@ int main() {
   // 9-15
   map["Transport"] += 16.8;
   map["Shopping"] += 3.8;
+  map["Meal"] += 16.3;
 
   show(map);
   show("Swim");
