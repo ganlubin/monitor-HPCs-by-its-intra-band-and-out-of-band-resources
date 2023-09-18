@@ -125,6 +125,7 @@ void show(const std::string &swim) {
   vector.push_back("2023-09-11");
   vector.push_back("2023-09-12");
   vector.push_back("2023-09-14");
+  vector.push_back("2023-09-18");
 
 
   std::cout << "-------------------------------------" << std::endl;
