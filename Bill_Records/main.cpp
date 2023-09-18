@@ -32,7 +32,7 @@ Trip:
 int main() {
 
   std::map<std::string, double> map;
-  std::cout << "the bill from 2023-08-31: " << std::endl;
+  // std::cout << "the bill from 2023-08-31: " << std::endl;
   map["Transport"] += (46.5 * 2);
   map["Meal"] += 7.5 + 21.58;
 
@@ -114,7 +114,7 @@ int main() {
   map["Meal"] += 16.3;
   map["Shopping"] += 8.8;
 
-  show(map);
+  // show(map);
   show("Swim");
 
   return 0;
