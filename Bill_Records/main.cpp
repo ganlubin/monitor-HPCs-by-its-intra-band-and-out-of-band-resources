@@ -31,90 +31,6 @@ Trip:
 
 int main() {
 
-  std::map<std::string, double> map;
-  // std::cout << "the bill from 2023-08-31: " << std::endl;
-  map["Transport"] += (46.5 * 2);
-  map["Meal"] += 7.5 + 21.58;
-
-  // 9-1
-  map["Drink"] += 11;
-  map["Meal"] += 6.8;
-  map["Meal"] += 15;
-  map["Shopping"] += 16.8;
-  map["Shopping"] += 76.55;
-  map["Vehicle"] += 9.51 + 0.98;
-
-  // 9-2
-  map["Vehicle"] += 2 + 3.5 + 11;
-  map["Meal"] += 30.5;
-  map["Movie"] += 90.7;
-
-  // 9-3
-  map["Vehicle"] += 11.32, map["Meal"] += 22.9, map["Shopping"] += 12;
-
-  // 9-4
-  map["Meal"] += 7.5;
-  map["Meal"] += 17.27;
-
-  // 9-5
-  map["Meal"] += 6.8;
-  map["Meal"] += 13.4;
-
-  // 9-6
-  map["Shopping"] += 9.9;
-  map["Meal"] += 6;
-  map["Meal"] += 23;
-  map["Meal"] += 20.6;
-  map["Football"] += 16.88;
-  map["Apartment_bill"] += 61.5;
-
-  // 9-7
-  map["Shopping"] += 28.9;
-  map["Meal"] += 4.5;
-  map["Meal"] += 8;
-  map["Meal"] += 20;
-  map["Drink"] += 8;
-  map["Snooker"] += 300;
-
-  // 9-8 ~ 9-10
-  map["Transport"] += 8;
-  map["Trip"] += 10;
-  map["Drink"] += 9.9;
-  map["Meal"] += 33.9;
-  map["Movie"] += 92;
-  map["Meal"] += 14;
-  map["Transport"] += 7;
-  map["Meal"] += 69.3;
-  map["Transport"] += 12;
-
-  // 9-11
-  map["Vehicle"] += 13.27 + 3.99;
-  map["Shopping"] += 6.18 + 10.5;
-  map["Meal"] += 12;
-  map["Apartment_bill"] += 22.5;
-  map["Vehicle"] += 22;
-  map["Shopping"] += 3;
-
-  // 9-12
-  map["Meal"] += 12;
-  map["Drink"] += 9.9;
-
-  // 9-13
-  map["Meal"] += 22;
-  map["Football"] += 31.25;
-
-  // 9-14
-  map["Meal"] += 14.87;
-  map["Drink"] += 12.48;
-  map["Shopping"] += 16.9;
-
-  // 9-15
-  map["Transport"] += 16.8;
-  map["Shopping"] += 3.8;
-  map["Meal"] += 16.3;
-  map["Shopping"] += 8.8;
-
-  // show(map);
   show("Swim");
 
   return 0;
@@ -126,6 +42,7 @@ void show(const std::string &swim) {
   vector.push_back("2023-09-12");
   vector.push_back("2023-09-14");
   vector.push_back("2023-09-18");
+  vector.push_back("2023-09-19");
 
 
   std::cout << "-------------------------------------" << std::endl;
