@@ -45,6 +45,7 @@ void show(const std::string &swim) {
   vector.push_back("2023-09-19");
   vector.push_back("2023-09-20");
   vector.push_back("2023-09-22");
+  vector.push_back("2023-09-25");
 
   std::cout << "-------------------------------------" << std::endl;
   std::cout << "Swimming times: " << vector.size() << std::endl;
