@@ -55,13 +55,12 @@ static int handle_signal(sd_bus_message *m) {
   }
 
   std::string today_time = getCurrentDate();
-  std::string storage_path = "./output/results/";
+  std::string storage_path = "/home/sokee/Desktop/monitor-HPCs-by-its-intra-band-and-out-of-band-resources/send_process_to_DBus/src/output/results/";
   std::string folderPath = storage_path + today_time;
-
   struct stat info;
   if (stat(folderPath.c_str(), &info) != 0) {
     if (mkdir(folderPath.c_str(), 0755) != 0) {
-      std::cerr << "cannot create the folder" << std::endl;
+      std::cerr << "cannot create the folder: " << strerror(errno) << std::endl;
       return -1;
     }
   } else if (info.st_mode & S_IFDIR) {

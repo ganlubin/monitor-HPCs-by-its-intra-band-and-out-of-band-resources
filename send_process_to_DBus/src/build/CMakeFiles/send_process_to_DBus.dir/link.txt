@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/send_process_to_DBus.dir/send_process_to_DBus.cpp.o -o send_process_to_DBus  -lsystemd -lprocps 
