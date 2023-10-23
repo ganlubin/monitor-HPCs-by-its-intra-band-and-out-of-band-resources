@@ -1,4 +1,0 @@
-/home/sokee/Desktop/monitor-HPCs-by-its-intra-band-and-out-of-band-resources/send_process_to_DBus/src/build/CMakeFiles/proc_getter.dir
-/home/sokee/Desktop/monitor-HPCs-by-its-intra-band-and-out-of-band-resources/send_process_to_DBus/src/build/CMakeFiles/send_process_to_DBus.dir
-/home/sokee/Desktop/monitor-HPCs-by-its-intra-band-and-out-of-band-resources/send_process_to_DBus/src/build/CMakeFiles/edit_cache.dir
-/home/sokee/Desktop/monitor-HPCs-by-its-intra-band-and-out-of-band-resources/send_process_to_DBus/src/build/CMakeFiles/rebuild_cache.dir
