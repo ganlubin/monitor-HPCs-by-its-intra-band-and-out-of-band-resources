@@ -61,10 +61,11 @@ void show(const std::string &swim) {
   vector.push_back("2023-10-30");
   vector.push_back("2023-10-31");
   vector.push_back("2023-11-03");
+  vector.push_back("2023-11-09");
 
   std::cout << "-------------------------------------" << std::endl;
   std::cout << "Swimming times: " << vector.size() << std::endl;
-  std::cout << "the usage: " << vector.size() * 1.0f / 53 * 100 << '%' << '\n';
+  std::cout << "the usage: " << vector.size() * 1.0f / 59 * 100 << '%' << '\n';
   std::cout << "-------------------------------------" << std::endl;
 }
 
